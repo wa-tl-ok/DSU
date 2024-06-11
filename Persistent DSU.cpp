@@ -5,7 +5,6 @@ struct Persistent_DSU {
         int sz;
     };
 
-    int mx;
     vector<int> head;
     vector<int> rang;
     vector<Trio> condition;
@@ -20,8 +19,6 @@ struct Persistent_DSU {
         for (int i = 0; i < n; i++) {
             rang[i] = 1;
         }
-
-        mx = 1;
     }
 
     int Find(int x) {
@@ -46,7 +43,6 @@ struct Persistent_DSU {
         rang[y] += rang[x];
         head[x] = y;
 
-        mx = max(mx, rang[y]);
         condition.push_back({ x, y, rang[x] });
 
         return true;
